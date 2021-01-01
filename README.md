@@ -2,8 +2,6 @@
 
 ## Video Compressor Bot
 
-## Bot by Bhardwajji 
-
 
 
 #### The Easy Way
