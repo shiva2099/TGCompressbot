@@ -1,6 +1,6 @@
 ---
 
-# Video Compressor Bot
+# unStable till4 Video Compressor Bot
 
 A Telegram Video Compressor Bot By [BhardwajjEE](https://telegram.me/Priyanshu_bhardwaj). **This bot works for all!** No need to define each user IDs to use bot. Also works in Group.
 
