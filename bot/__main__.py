@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
+# (c) Shrimadhav U K | @AbirHasan2005
 
 
 import os
@@ -11,25 +11,21 @@ from bot import (
     AUTH_USERS,
     DOWNLOAD_LOCATION,
     LOGGER,
-    TG_BOT_TOKEN
+    TG_BOT_TOKEN,
+    BOT_USERNAME
 )
 from bot.plugins.new_join_fn import (	
     help_message_f	
 )
 
-from pyrogram import (
-  Client, 
-  Filters, 
-  MessageHandler,
-  CallbackQueryHandler
-)
+from pyrogram import Client, filters
+from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 
 from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
     incoming_compress_message_f,
     incoming_cancel_message_f
 )
-
 
 from bot.plugins.status_message_fn import (
     exec_message_f,
@@ -60,42 +56,42 @@ if __name__ == "__main__" :
     # START command
     incoming_start_message_handler = MessageHandler(
         incoming_start_message_f,
-        filters=Filters.command([Command.START]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["start", f"start@{BOT_USERNAME}"])
     )
     app.add_handler(incoming_start_message_handler)
     
     # COMPRESS command
     incoming_compress_message_handler = MessageHandler(
         incoming_compress_message_f,
-        filters=Filters.command([Command.COMPRESS]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["compress", f"compress@{BOT_USERNAME}"])
     )
     app.add_handler(incoming_compress_message_handler)
     
     # CANCEL command
     incoming_cancel_message_handler = MessageHandler(
         incoming_cancel_message_f,
-        filters=Filters.command([Command.CANCEL]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["cancel", f"cancel@{BOT_USERNAME}"]) & filters.chat(chats=AUTH_USERS)
     )
     app.add_handler(incoming_cancel_message_handler)
 
     # MEMEs COMMANDs
     exec_message_handler = MessageHandler(
         exec_message_f,
-        filters=Filters.command([Command.EXEC]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["exec", f"exec@{BOT_USERNAME}"]) & filters.chat(chats=AUTH_USERS)
     )
     app.add_handler(exec_message_handler)
     
     # HELP command
     help_text_handler = MessageHandler(
         help_message_f,
-        filters=Filters.command([Command.HELP]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["help", f"help@{BOT_USERNAME}"])
     )
     app.add_handler(help_text_handler)
     
     # Telegram command to upload LOG files
     upload_log_f_handler = MessageHandler(
         upload_log_file,
-        filters=Filters.command([Command.UPLOAD_LOG_FILE]) & Filters.chat(chats=AUTH_USERS)
+        filters=filters.command(["log", f"log@{BOT_USERNAME}"]) & filters.chat(chats=AUTH_USERS)
     )
     app.add_handler(upload_log_f_handler)
     
