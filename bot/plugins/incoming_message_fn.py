@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K / Akshay C
+# (c) Shrimadhav U K / Akshay C / @priyanshu_bhardwaj
 
 # the logging things
+
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -28,41 +29,44 @@ from bot.helper_funcs.display_progress import (
   humanbytes
 )
 
-from pyrogram import (
+from pyrogram.types import (
   InlineKeyboardButton,
   InlineKeyboardMarkup
 )
+
+from pyrogram import Client, filters
+from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 
 from bot.helper_funcs.utils import(
   delete_downloads
 )
         
 async def incoming_start_message_f(bot, update):
-    """/start command"""
-    if update.from_user.id not in AUTH_USERS:
-        await update.message.delete()
-        return
-    # LOGGER.info(update)
+
     await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.START_TEXT,
-        reply_to_message_id=update.message_id
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('My Father 🖤 ', url='https://telegram.me/Priyanshu_bhardwaj')
+                ],
+                [
+                    InlineKeyboardButton('Repo ', url='https://github.com/bhardwajjEE/TGCompressbot')
+                ]
+            ]
+        ),
+        reply_to_message_id=update.message_id,
     )
     
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
-    
-  if update.from_user.id not in AUTH_USERS:
-    try:
-      await update.message.delete()
-    except:
-      pass
-    return
+
   if update.reply_to_message is None:
     try:
       await bot.send_message(
         chat_id=update.chat.id,
-        text="🤬 Reply to telegram media 🤬",
+        text="Send This Command in Reply of Telegram File .",
         reply_to_message_id=update.message_id
       )
     except:
@@ -78,7 +82,7 @@ async def incoming_compress_message_f(bot, update):
         try:
           await bot.send_message(
             chat_id=update.chat.id,
-            text="🤬 Value should be 10 - 90",
+            text=" ⚡ Value should be 10 to 90 ⚡ ",
             reply_to_message_id=update.message_id
           )
           return
@@ -164,7 +168,7 @@ async def incoming_compress_message_f(bot, update):
     if duration is None or bitrate is None:
       try:
         await sent_message.edit_text(                
-          text="⚠️ Getting video meta data failed ⚠️"                
+          text="⛵ Getting video meta data failed ⛵"                
         )
       except:
           pass          
@@ -217,7 +221,7 @@ async def incoming_compress_message_f(bot, update):
       if(upload is None):
         try:
           await sent_message.edit_text(
-            text="Upload stopped"
+            text="Upload stopped ⚓"
           )
         except:
           pass
@@ -237,7 +241,7 @@ async def incoming_compress_message_f(bot, update):
       delete_downloads()
       try:
         await sent_message.edit_text(                    
-          text="⚠️ Compression failed ⚠️"               
+          text="⛽ Compression Failed ⛽"               
         )
       except:
         pass
@@ -246,7 +250,7 @@ async def incoming_compress_message_f(bot, update):
     delete_downloads()
     try:
       await sent_message.edit_text(                    
-        text="⚠️ Failed Downloaded path not exist ⚠️"               
+        text="🚕 Failed Downloaded path not exist 🚕"               
       )
     except:
       pass
@@ -254,15 +258,22 @@ async def incoming_compress_message_f(bot, update):
     
 async def incoming_cancel_message_f(bot, update):
   """/cancel command"""
+  if update.from_user.id not in AUTH_USERS:
+    try:
+      await update.message.delete()
+    except:
+      pass
+    return
+
   status = DOWNLOAD_LOCATION + "/status.json"
   if os.path.exists(status):
     inline_keyboard = []
     ikeyboard = []
-    ikeyboard.append(InlineKeyboardButton("Yes 🚫", callback_data=("fuckingdo").encode("UTF-8")))
-    ikeyboard.append(InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton("🔴 Yes 🔴", callback_data=("fuckingdo").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton(" No 🔙", callback_data=("fuckoff").encode("UTF-8")))
     inline_keyboard.append(ikeyboard)
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
-    await update.reply_text("Are you sure? 🚫 This will stop the compression", reply_markup=reply_markup, quote=True)
+    await update.reply_text("🚨 This Will stop Your Process 🚨 ", reply_markup=reply_markup, quote=True)
   else:
     delete_downloads()
     await bot.send_message(
