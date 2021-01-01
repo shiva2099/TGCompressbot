@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | gautamajay52
+# (c) Shrimadhav U K | gautamajay52 | @priyanshu_bhardwaj
 
 # the logging things
 
@@ -17,7 +17,7 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
-from pyrogram import CallbackQuery
+from pyrogram.types import CallbackQuery
 #from bot.helper_funcs.admin_check import AdminCheck
 from bot import (
     AUTH_USERS,
@@ -53,7 +53,7 @@ async def button(bot, update: CallbackQuery):
                     except:
                         pass
                     try:
-                        await update.message.edit_text("🚦🚦 Stopped 🚦🚦")
+                        await update.message.edit_text("🚦🚦 Last Process Stopped 🚦🚦")
                     except:
                         pass
             else:
@@ -63,7 +63,7 @@ async def button(bot, update: CallbackQuery):
                     pass
         elif cb_data == "fuckoff":
             try:
-                await update.message.edit_text("Okay! fine 🤬")
+                await update.message.edit_text("Okay! Fine 🤬")
             except:
                 pass
 				
