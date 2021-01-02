@@ -1,5 +1,5 @@
 {
-  "name": "TGVideoCompressBot",
+  "name": "TGCompressBot",
   "description": "Telegram's best Video Compress Bot",
   "logo": "https://telegra.ph/file/b687febf32e4d583fb1d4.jpg",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "success_url": "https://t.me/CompresserRobot",
   "website": "https://t.me/priyanshu_bhardwaj",
-  "repository": "https://github.com/bhardwajjEE/TGVideoCompress",
+  "repository": "https://github.com/bhardwajjEE/TGCompressbot",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable VARs when in ENV mode",
