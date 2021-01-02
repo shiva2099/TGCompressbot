@@ -29,11 +29,11 @@ An example `config.py` file could be:
 from sample_config import Config
 
 class Development(Config):
-  APP_ID = 6
+  APP_ID = 013332
   API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
-  TG_BOT_TOKEN = ""
+  TG_BOT_TOKEN = "133235:ggutdii3rjjr2"
   AUTH_USERS = [
-    7351948
+    134258
   ]
 ```
 
@@ -55,15 +55,11 @@ help - To know about bot
 * `AUTH_USERS` - Put your ID & other Sudo Users IDs. Separate with **Space**. Just for using ***Admin Commands***.
 
 
-![](https://github.com/bhardwajjEE/bhardwajjEE/blob/main/Assets/ezgif.com-gif-maker.gif)
 
-
-
-
-
-
-### Credits:
-* [Jijinr](https://github.com/Jijinr)
-* [SpEcHide](https://github.com/spechide)
 ### All Thanks To :
 * [AbirHasan2005](https://github.com/AbirHasan2005)
+* [Jijinr](https://github.com/Jijinr)
+* [SpEcHide](https://github.com/spechide)
+
+![](https://github.com/bhardwajjEE/bhardwajjEE/blob/main/Assets/ezgif.com-gif-maker.gif)
+
