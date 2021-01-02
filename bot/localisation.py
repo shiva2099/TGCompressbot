@@ -30,7 +30,7 @@ class Localisation:
     
     DEL_ETED_CUSTOM_THUMB_NAIL = "✅ Custom thumbnail cleared succesfully."
     
-    FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "✅ Media cleared succesfully."
+    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "⚠️ Already one Process going on! ⚠️ \n\nCheck Live Status on Updates Channel." # Replace Channel Username With Your's in `/bot/plugins/incoming_message_fn.py`
     
     SAVED_RECVD_DOC_FILE = "✅ Downloaded Successfully."
     
