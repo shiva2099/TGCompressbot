@@ -1,9 +1,9 @@
 ---
 
-# unStable till4 Video Compressor Bot
+# Video Compressor Bot
 
 A Telegram Video Compressor Bot By [BhardwajjEE](https://telegram.me/Priyanshu_bhardwaj). **This bot works for all!** No need to define each user IDs to use bot. Also works in Group.
-
+With Bot Log Support .
 ### Demo Bot:
 <a href="https://t.me/CompresserRobot"><img src="https://img.shields.io/badge/CompresserROBOT-Telegram-orange"></a>
 
@@ -54,9 +54,8 @@ help - To know about bot
 * `API_HASH` - Get this from my.telegram.org
 * `AUTH_USERS` - Put your ID & other Sudo Users IDs. Separate with **Space**. Just for using ***Admin Commands***.
 
-### Support :
 
-<a href="https://t.me/priyanshu_bhardwaj"><img src="https://img.shields.io/badge/BhardwajjEE-Telegram-orange"></a>
+![](https://github.com/bhardwajjEE/bhardwajjEE/blob/main/Assets/ezgif.com-gif-maker.gif)
 
 
 
@@ -66,4 +65,5 @@ help - To know about bot
 ### Credits:
 * [Jijinr](https://github.com/Jijinr)
 * [SpEcHide](https://github.com/spechide)
+### All Thanks To :
 * [AbirHasan2005](https://github.com/AbirHasan2005)
