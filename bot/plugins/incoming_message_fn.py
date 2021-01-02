@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K / Akshay C / @priyanshu_bhardwaj
+# (c) Shrimadhav U K / Pratyush
 
 # the logging things
 
-import logging
 import datetime
+import logging
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -44,6 +44,7 @@ from bot.helper_funcs.utils import(
 )
         
 async def incoming_start_message_f(bot, update):
+    """/start command"""
 
     await bot.send_message(
         chat_id=update.chat.id,
@@ -51,10 +52,10 @@ async def incoming_start_message_f(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('My Father 🖤 ', url='https://telegram.me/Priyanshu_bhardwaj')
+                    InlineKeyboardButton('My Father 🖤', url='https://telegram.me/priyanshu_bhardwaj')
                 ],
                 [
-                    InlineKeyboardButton('Repo ', url='https://github.com/bhardwajjEE/TGCompressbot')
+                    InlineKeyboardButton('Source 🌟', url='https://github.Com/bhardwajjEE/TGcompressBot')
                 ]
             ]
         ),
@@ -68,7 +69,7 @@ async def incoming_compress_message_f(bot, update):
     try:
       await bot.send_message(
         chat_id=update.chat.id,
-        text="Send This Command in Reply of Telegram File .",
+        text="Reply this command to telegram media ",
         reply_to_message_id=update.message_id
       )
     except:
@@ -84,7 +85,7 @@ async def incoming_compress_message_f(bot, update):
         try:
           await bot.send_message(
             chat_id=update.chat.id,
-            text=" ⚡ Value should be 10 to 90 ⚡ ",
+            text="keep value  10 to 90",
             reply_to_message_id=update.message_id
           )
           return
@@ -107,9 +108,9 @@ async def incoming_compress_message_f(bot, update):
       text=Localisation.DOWNLOAD_START,
       reply_to_message_id=update.message_id
     )
-      chat_id = LOG_CHANNEL
+    chat_id = LOG_CHANNEL
     now = datetime.datetime.now()
-    await bot.send_message(chat_id, f"**Bot Become Busy !!** \n\nA Process Started at `{now}`", parse_mode="markdown")
+    await bot.send_message(chat_id, f"**Bot Become Busy Now !!** \n\nA Process Started at `{now}`", parse_mode="markdown")
     try:
       d_start = time.time()
       status = DOWNLOAD_LOCATION + "/status.json"
@@ -137,6 +138,9 @@ async def incoming_compress_message_f(bot, update):
           await sent_message.edit_text(
             text="Download stopped"
           )
+          chat_id = LOG_CHANNEL
+          now = datetime.datetime.now()
+          await bot.send_message(chat_id, f"**Download Stopped, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
         except:
           pass
         delete_downloads()
@@ -161,6 +165,13 @@ async def incoming_compress_message_f(bot, update):
       await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('Show Bot Status', url='https://t.me/CompressZone') # Replace With Your's
+                ]
+            ]
+        ),
         reply_to_message_id=update.message_id
       )
     except:
@@ -173,8 +184,11 @@ async def incoming_compress_message_f(bot, update):
     if duration is None or bitrate is None:
       try:
         await sent_message.edit_text(                
-          text="⛵ Getting video meta data failed ⛵"                
+          text="⚠️ Getting video meta data failed ⚠️"                
         )
+        chat_id = LOG_CHANNEL
+        now = datetime.datetime.now()
+        await bot.send_message(chat_id, f"**Download Failed, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
       except:
           pass          
       delete_downloads()
@@ -226,8 +240,11 @@ async def incoming_compress_message_f(bot, update):
       if(upload is None):
         try:
           await sent_message.edit_text(
-            text="Upload stopped ⚓"
+            text="Upload stopped"
           )
+          chat_id = LOG_CHANNEL
+          now = datetime.datetime.now()
+          await bot.send_message(chat_id, f"**Upload Stopped, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
         except:
           pass
         delete_downloads()
@@ -235,6 +252,9 @@ async def incoming_compress_message_f(bot, update):
       uploaded_time = TimeFormatter((time.time() - u_start)*1000)
       await sent_message.delete()
       delete_downloads()
+      chat_id = LOG_CHANNEL
+      now = datetime.datetime.now()
+      await bot.send_message(chat_id, f"**Upload Done, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
       LOGGER.info(upload.caption);
       try:
         await upload.edit_caption(
@@ -246,20 +266,25 @@ async def incoming_compress_message_f(bot, update):
       delete_downloads()
       try:
         await sent_message.edit_text(                    
-          text="⛽ Compression Failed ⛽"               
+          text="⚠️ Compression failed ⚠️"               
         )
+        chat_id = LOG_CHANNEL
+        now = datetime.datetime.now()
+        await bot.send_message(chat_id, f"**Compression Failed, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
       except:
         pass
-          
+      
   else:
     delete_downloads()
     try:
       await sent_message.edit_text(                    
-        text="🚕 Failed Downloaded path not exist 🚕"               
+        text="⚠️ Failed Downloaded path not exist ⚠️"               
       )
+      chat_id = LOG_CHANNEL
+      now = datetime.datetime.now()
+      await bot.send_message(chat_id, f"**Download Error, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
     except:
       pass
-    
     
 async def incoming_cancel_message_f(bot, update):
   """/cancel command"""
@@ -274,11 +299,14 @@ async def incoming_cancel_message_f(bot, update):
   if os.path.exists(status):
     inline_keyboard = []
     ikeyboard = []
-    ikeyboard.append(InlineKeyboardButton("🔴 Yes 🔴", callback_data=("fuckingdo").encode("UTF-8")))
-    ikeyboard.append(InlineKeyboardButton(" No 🔙", callback_data=("fuckoff").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton("Yes 🚨", callback_data=("fuckingdo").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton("No 🚕", callback_data=("fuckoff").encode("UTF-8")))
     inline_keyboard.append(ikeyboard)
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
-    await update.reply_text("🚨 This Will stop Your Process 🚨 ", reply_markup=reply_markup, quote=True)
+    await update.reply_text("🛑 This Will Your Stop Your ongoing Process 🛑", reply_markup=reply_markup, quote=True)
+    chat_id = LOG_CHANNEL
+    now = datetime.datetime.now()
+    await bot.send_message(chat_id, f"**Last Process Cancelled, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
   else:
     delete_downloads()
     await bot.send_message(
