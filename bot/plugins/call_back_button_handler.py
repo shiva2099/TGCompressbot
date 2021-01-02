@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | gautamajay52 | @priyanshu_bhardwaj
+# (c) Shrimadhav U K | gautamajay52 | PratyuSh
 
 # the logging things
 
@@ -58,12 +58,12 @@ async def button(bot, update: CallbackQuery):
                         pass
             else:
                 try:
-                    await update.message.edit_text("You are not allowed to do that 🤭")
+                    await update.message.edit_text("You are not allowed to do that 😜")
                 except:
                     pass
         elif cb_data == "fuckoff":
             try:
-                await update.message.edit_text("Okay! Fine 🤬")
+                await update.message.edit_text(" Don't Disturb Me While Working ...👿")
             except:
                 pass
 				
