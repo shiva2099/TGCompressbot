@@ -7,7 +7,7 @@ class Config(object):
     # The Telegram API things
     APP_ID = int(get_config("APP_ID", 12345))
     API_HASH = get_config("API_HASH")
-    LOG_CHANNEL = int(get_config("LOG_CHANNEL", -1001234567890))
+    LOG_CHANNEL = int(get_config("LOG_CHANNEL", -1001339757699))
      # Get these values from my.telegram.org
     # array to store the channel ID who are authorized to use the bot
     AUTH_USERS = set(
@@ -31,8 +31,8 @@ class Config(object):
     # maximum message length in Telegram
     MAX_MESSAGE_LENGTH = 4096
     # add config vars for the display progress
-    FINISHED_PROGRESS_STR = get_config("FINISHED_PROGRESS_STR", "▓")
-    UN_FINISHED_PROGRESS_STR = get_config("UN_FINISHED_PROGRESS_STR", "░")
+    FINISHED_PROGRESS_STR = get_config("FINISHED_PROGRESS_STR", "🌑")
+    UN_FINISHED_PROGRESS_STR = get_config("UN_FINISHED_PROGRESS_STR", "⚪")
     LOG_FILE_ZZGEVC = get_config("LOG_FILE_ZZGEVC", "Log.txt")
       # because, https://t.me/c/1494623325/5603
     SHOULD_USE_BUTTONS = get_config("SHOULD_USE_BUTTONS", False)
