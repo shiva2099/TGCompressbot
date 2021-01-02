@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | @priyanshu_bhardwaj
+# (c) Shrimadhav U K | pratyush
 
 
 from bot.localisation import Localisation
@@ -29,10 +29,14 @@ async def help_message_f(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('My Father 🖤 ', url='https://telegram.me/priyanshu_bhardwaj')
+                    InlineKeyboardButton('My Father 🖤', url='https://telegram.me/priyanshu_bhardwaj')
                 ],
                 [
-                    InlineKeyboardButton('Source 🌟', url='https://github.com/bhardwajjEE/TGCompressbot')
+                    InlineKeyboardButton('Support Group', url='https://t.me/video_Compress')
+                ],
+                [
+                    InlineKeyboardButton('GitProfile', url='https://github.com/bhardwajjEE'),
+                    InlineKeyboardButton('Source 🌟', url='https://github.com/bhardwajjEE/TGCompressBOT') 
                 ]
             ]
         ),
