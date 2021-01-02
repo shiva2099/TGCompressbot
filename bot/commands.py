@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# pratyush (c)
 
 from bot.get_cfg import get_config
 
