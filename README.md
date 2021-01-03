@@ -5,7 +5,7 @@
 A Telegram Video Compressor Bot By [BhardwajjEE](https://telegram.me/Priyanshu_bhardwaj). **This bot works for all!** No need to define each user IDs to use bot. Also works in Group.
 With Bot Log Support .
 ### Demo Bot:
-<a href="https://t.me/CompresserRobot"><img src="https://img.shields.io/badge/CompresserROBOT-Telegram-orange"></a>
+<a href="https://t.me/TheCompresserbot"><img src="https://img.shields.io/badge/CompresserROBOT-Telegram-orange"></a>
 
 ## Easy Deploy:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
