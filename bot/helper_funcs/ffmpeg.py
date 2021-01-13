@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
+# (c) Shrimadhav U K | @AbirHasan2005
 
 # the logging things
 import logging
@@ -92,7 +92,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     isDone = False
     while process.returncode != 0:
       await asyncio.sleep(3)
-      with open("/app/DOWNLOADS/progress.txt",'r+') as file:
+      with open("/app/downloads/progress.txt",'r+') as file:
         text = file.read()
         frame = re.findall("frame=(\d+)", text)
         time_in_us=re.findall("out_time_ms=(\d+)", text)
